@@ -1,9 +1,8 @@
-import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import "@/app/globals.css";
 import React from "react";
-
-const inter = Inter({ subsets: ["latin"] });
+import { cn } from "@/lib/utils";
+import { inter } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +16,9 @@ export default function RootLayout({
 }>): React.JSX.Element {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={cn("font-sans antialiased", inter.variable)}>
+        {children}
+      </body>
     </html>
   );
 }
